@@ -7,15 +7,36 @@
   height:100vh;
 }
 
+.app-section{
+padding:30px;
+}
+
+.app-container{
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .app-grid{
   display:grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 8px;
   row-gap: 16px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 30px
+ 
+  
+}
+
+.app-search-input{
+  padding:5px;
+  width:85%;
+  box-sizing: border-box;
+  border: 1px solid gray;
+  border-radius: 10px;
 }
 
 
+.app-search{
+ 
+  margin-bottom: 30px;
+  
+}

@@ -4,7 +4,7 @@ import Product from './component/Product'
 import ProductPost from './component/ProductPost'
 import product from './data/product'
 import {useState} from 'react'
-
+import Search from './component/Search'
 function App() {
 
   const [showSelectProduct,setShowSelectProduct] = useState({
@@ -13,27 +13,44 @@ function App() {
     title:'',
   })
 
- 
+ const [searchText,setSearchText] = useState('')
+
+ function handleChangeSearch(event){
+   const {value} = event.target
+  setSearchText(value)
+}
+
+
+
   return (
     <div className="App">
         <Header/>
-    <div className='app-grid' >
-      {
         
-          product.map((item)=>{
-            return (
-               <div>
-                 <Product item={item} setShow={setShowSelectProduct} />
-              </div>
+        <section>
+          <div className='app-section'>
+            <div className='app-container'>
+              <Search searchText={searchText} handleChangeSearch={handleChangeSearch}/>
+              <div className='app-grid' >
+                   {
+        
+                      product.filter((item)=> item.title.includes(searchText)).map((item)=>{
+                      return (
+                         <div>
+                            <Product item={item} setShow={setShowSelectProduct} />
+                        </div>
             
-          )}
-        )
-      }
+                            )}
+                         )
+                   }
     
     </div>
     {
-       showSelectProduct.status&&(<ProductPost showSelectProduct={showSelectProduct}/>)
+       showSelectProduct.status&&(<ProductPost showSelectProduct={showSelectProduct} setShow={setShowSelectProduct}/>)
     }
+            </div>
+          </div>
+        </section>
+   
     </div>
   );
 }
