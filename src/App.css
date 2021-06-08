@@ -40,3 +40,13 @@ padding:30px;
   margin-bottom: 30px;
   
 }
+
+.app-post {
+  background-color: pink;
+  margin-bottom: 16px;
+  padding: 12px;
+}
+
+.app-posts{
+  margin-top:20px;
+}
